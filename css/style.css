@@ -1,0 +1,62 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.field {
+  margin-bottom: 1rem;
+  border: none;
+  padding: 0;
+}
+
+label,
+legend {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+label.inline {
+  display: inline;
+  font-weight: normal;
+  margin-right: 1rem;
+}
+
+input,
+select,
+button {
+  padding: 8px;
+  font-size: 1rem;
+}
+
+.field input:not([type="radio"]):not([type="checkbox"]),
+.field select {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.error-msg {
+  color: #a3173a;
+  font-size: 0.9rem;
+}
+
+.invalid {
+  border: 2px solid #a3173a;
+}
+
+#summary {
+  background: #f6f4ef;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+#summary:empty {
+  display: none;
+}
+
+/* Task B3.2 (Challenge): green border for a touched field with no error */
+.valid {
+  border: 2px solid #2e7d32;
+}

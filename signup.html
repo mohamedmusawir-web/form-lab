@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an account</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 480px;
+           margin: 2rem auto; padding: 0 1rem; }
+    .field { margin-bottom: 1rem; }
+    label { display: block; font-weight: bold; margin-bottom: 4px; }
+    input { width: 100%; box-sizing: border-box; padding: 8px; font-size: 1rem; }
+    input[type="checkbox"] { width: auto; }
+    .pw-row { display: flex; gap: 8px; }
+    button { padding: 8px 14px; font-size: 1rem; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .error-msg { color: #a3173a; font-size: 0.9rem; }
+    .invalid { border: 2px solid #a3173a; }
+    #pw-rules { list-style: none; padding: 0; color: #888; }
+    #pw-rules li::before { content: "✗ "; }
+    #pw-rules li.met { color: #2e7d32; }
+    #pw-rules li.met::before { content: "✓ "; }
+    #strength { font-weight: bold; margin: 0 0 0.5rem; }
+  </style>
+  <script src="js/signup.js" defer></script>
+</head>
+<body>
+  <h1>Create an account</h1>
+  <form id="signup-form" novalidate>
+    <div class="field">
+      <label for="username">Username</label>
+      <input id="username" type="text" autocomplete="username">
+      <span class="error-msg" id="username-error"></span>
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" type="email" autocomplete="email">
+      <span class="error-msg" id="email-error"></span>
+    </div>
+    <div class="field">
+      <label for="dob">Date of birth (optional; must be 16 or over)</label>
+      <input id="dob" type="date" autocomplete="bday">
+      <span class="error-msg" id="dob-error"></span>
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <div class="pw-row">
+        <input id="password" type="password" autocomplete="new-password">
+        <button id="show-btn" type="button">Show</button>
+      </div>
+      <span class="error-msg" id="caps-msg" role="status"></span>
+      <ul id="pw-rules">
+        <li id="rule-length">At least 8 characters</li>
+        <li id="rule-number">At least one number</li>
+        <li id="rule-upper">At least one capital letter</li>
+        <li id="rule-symbol">At least one symbol, e.g. ! or #</li>
+      </ul>
+      <p id="strength" aria-live="polite"></p>
+    </div>
+    <div class="field">
+      <label for="confirm">Confirm password</label>
+      <input id="confirm" type="password" autocomplete="new-password">
+      <span class="error-msg" id="confirm-error"></span>
+    </div>
+    <div class="field">
+      <label><input id="terms" type="checkbox"> I accept the campus IT rules</label>
+    </div>
+    <button id="submit-btn" type="submit" disabled>Create account</button>
+  </form>
+  <p><button id="reset-btn" type="button">Start again</button></p>
+  <p id="result" role="status"></p>
+</body>
+</html>

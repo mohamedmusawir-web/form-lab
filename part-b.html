@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop Registration (Part B)</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/part-b.js" defer></script>
+
+</head>
+<body>
+  <h1>ICST Tech Week · Workshop registration</h1>
+  <p><a href="index.html">Back to Part A</a></p>
+
+  <form id="reg-form" novalidate>
+    <div class="field">
+      <label for="full-name">Full name</label>
+      <input id="full-name" name="fullName" type="text" required minlength="3">
+      <span class="error-msg" id="full-name-error"></span>
+    </div>
+
+    <div class="field">
+      <label for="student-id">Student ID</label>
+      <input id="student-id" name="studentId" type="text" placeholder="HD3-017" required pattern="HD[0-9]-[0-9]{3}">
+      <span class="error-msg" id="student-id-error"></span>
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required>
+      <span class="error-msg" id="email-error"></span>
+    </div>
+
+    <div class="field">
+      <label for="phone">Mobile number</label>
+      <input id="phone" name="phone" type="tel" placeholder="0771234567" required pattern="07[0-9]{8}">
+      <span class="error-msg" id="phone-error"></span>
+    </div>
+
+    <div class="field">
+      <label for="workshop">Workshop</label>
+      <select id="workshop" name="workshop" required>
+        <option value="">Choose one</option>
+        <option value="web">Responsive web design</option>
+        <option value="js">JavaScript games</option>
+        <option value="ai">Intro to AI tools</option>
+      </select>
+      <span class="error-msg" id="workshop-error"></span>
+    </div>
+
+    <fieldset class="field">
+      <legend>Session</legend>
+      <label class="inline">
+        <input type="radio" name="session" value="morning" checked>
+        Morning
+      </label>
+      <label class="inline">
+        <input type="radio" name="session" value="afternoon">
+        Afternoon
+      </label>
+    </fieldset>
+
+    <div class="field">
+      <label for="guests">Guests (0 to 3)</label>
+      <input id="guests" name="guests" type="number" value="0" min="0" max="3">
+      <span class="error-msg" id="guests-error"></span>
+    </div>
+
+    <div class="field">
+      <label class="inline">
+        <input id="laptop" name="laptop" type="checkbox">
+        I will bring my own laptop
+      </label>
+    </div>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <p id="status" role="status"></p>
+  <section id="summary"></section>
+</body>
+</html>
